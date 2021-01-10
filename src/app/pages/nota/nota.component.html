@@ -1,0 +1,64 @@
+<h1>Nota<small>Nombre de nota</small></h1>
+
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/notas">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn faster">
+    <div>
+        <form action="">
+
+            <div class="mt-5 form-group">
+                <label class="form-label">Firebase ID</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" disabled="disabled" placeholder="Firebase ID">
+                <div id="emailHelp" class="form-text text-muted">We'll never share your ID with anyone else.</div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Nombre de nota" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Nota</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Detalles de nota" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Herramienta</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">GoogleNotes </label>
+                <br>
+                <button class="btn btn-outline-success w-50" type="button">
+                  <i class="fab fa-google-drive"></i>
+                  GoogleNotes
+                </button>
+                <button class="btn btn-outline-danger w-50" type="button">
+                  <i class="fab fa-google-drive"></i>
+                  GoogleNotes
+                </button>
+            </div>
+
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary mt-5 w-25">
+                  <i class="fab fa-aws"></i> Submit</button>
+            </div>
+
+
+        </form>
+    </div>
+
+</div>
