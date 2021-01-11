@@ -6,6 +6,9 @@ import { NotaComponent } from './pages/nota/nota.component';
 import { NotasComponent } from './pages/notas/notas.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { FormsModule } from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

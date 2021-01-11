@@ -12,27 +12,40 @@
 </div>
 
 
-<table class="table mt-3 animated fadeIn faster">
+<table class="table mt-3 animated fadeIn faster" *ngIf="!cargando && notas.length > 0">
     <thead class="table-dark">
         <tr>
+            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Nota</th>
             <th scope="col">googleNotes</th>
             <th scope="col">Herramienta</th>
+            <th scope="col">Opciones</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td></td>
+        <tr *ngFor="let nota of notas; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ nota.nombre }}</td>
+            <td>{{ nota.nota }}</td>
+            <td>
+                <label *ngIf="nota.googleNotes" class="badge bg-success">InGoogle</label>
+                <label *ngIf="!nota.googleNotes" class="badge bg-danger">OutGoogle</label>
+            </td>
+            <td>{{ nota.herramienta }}</td>
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/nota', nota.id]">
+                  <i class="far fa-edit"></i>
+              </button>
+                <button class="btn btn-danger" (click)="deleteNota( nota, i )">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
         </tr>
     </tbody>
 </table>
 
-<div class="alert alert-info text-center mt-3">
+<div *ngIf="cargando" class="alert alert-info text-center mt-3 fadeIn faster">
     <h4 class="alert-heading">Cargando</h4>
     <p>
         <i class="fa fa-sync-alt fa-spin fa-2x"></i>
@@ -40,7 +53,7 @@
     <p class="mb-0">Espere por favor</p>
 </div>
 
-<div class="alert alert-warning text-center mt-3">
+<div *ngIf="!cargando && notas.length === 0" class="alert alert-warning text-center mt-3 fadeIn faster">
     <h4 class="alert-heading">No Hay registros</h4>
     <p>
         <i class="fa fa-exclamation fa-2x"></i>
